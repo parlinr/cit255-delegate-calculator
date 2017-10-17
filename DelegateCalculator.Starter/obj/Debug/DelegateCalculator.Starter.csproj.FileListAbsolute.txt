@@ -1,0 +1,13 @@
+C:\Users\velisj\Git\NMC\CIT255\DelegateCalculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.csproj.CoreCompileInputs.cache
+C:\Users\velisj\Git\NMC\CIT255\DelegateCalculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.exe.config
+C:\Users\velisj\Git\NMC\CIT255\DelegateCalculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.exe
+C:\Users\velisj\Git\NMC\CIT255\DelegateCalculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.pdb
+C:\Users\velisj\Git\NMC\CIT255\DelegateCalculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.exe
+C:\Users\velisj\Git\NMC\CIT255\DelegateCalculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.pdb
+C:\Users\velisj\Google Drive\NMC\Courses\CIT255\CIT255 - Activities\Coding Activity - The Delegate Calculator\CodingActivity_DelegateCalculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.exe.config
+C:\Users\velisj\Google Drive\NMC\Courses\CIT255\CIT255 - Activities\Coding Activity - The Delegate Calculator\CodingActivity_DelegateCalculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.exe
+C:\Users\velisj\Google Drive\NMC\Courses\CIT255\CIT255 - Activities\Coding Activity - The Delegate Calculator\CodingActivity_DelegateCalculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.pdb
+C:\Users\velisj\Google Drive\NMC\Courses\CIT255\CIT255 - Activities\Coding Activity - The Delegate Calculator\CodingActivity_DelegateCalculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.csproj.CoreCompileInputs.cache
+C:\Users\velisj\Google Drive\NMC\Courses\CIT255\CIT255 - Activities\Coding Activity - The Delegate Calculator\CodingActivity_DelegateCalculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.exe
+C:\Users\velisj\Google Drive\NMC\Courses\CIT255\CIT255 - Activities\Coding Activity - The Delegate Calculator\CodingActivity_DelegateCalculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.pdb
+C:\Users\velisj\Google Drive\NMC\Courses\CIT255\CIT255 - Activities\Coding Activity - The Delegate Calculator\CodingActivity_DelegateCalculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.csprojResolveAssemblyReference.cache
