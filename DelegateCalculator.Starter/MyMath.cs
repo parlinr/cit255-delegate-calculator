@@ -11,12 +11,62 @@ namespace DelegateCalculator
         public enum Operation
         {
             NONE,
-            ADD
+            ADD,
+            SUBTRACT,
+            MULTIPLY,
+            DIVIDE,
+            MODULO,
+            EXPONENT,
+            NTHROOT,
+            ABS,
+            FACTORIAL
         }
         
         public static double Add(double number1, double number2)
         {
             return number1 + number2;
+        }
+
+        public static double Subtract(double number1, double number2)
+        {
+            return number1 - number2;
+        }
+
+        public static double Multiply(double number1, double number2)
+        {
+            return number1 * number2;
+        }
+
+        public static double Divide(double number1, double number2)
+        {
+            return number1 / number2;
+        }
+
+        public static double Modulo(double number1, double number2)
+        {
+            return number1 % number2;
+        }
+
+        public static double Exponent(double number1, double number2)
+        {
+            return Math.Pow(number1, number2);
+        }
+
+        public static double NthRoot(double number1, double number2)
+        {
+            return Math.Pow(number1, 1 / number2);
+        }
+
+        public static double Abs(double number1, double number2=0)
+        {
+            return Math.Abs(number1);
+        }
+
+        public static double Factorial(double number1, double number2=0)
+        {
+            if (number1<= 1)
+                    return 1;
+            return number1 * Factorial(number1 - 1);
         }
     }
 }

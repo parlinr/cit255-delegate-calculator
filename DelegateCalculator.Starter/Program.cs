@@ -68,7 +68,16 @@ namespace DelegateCalculator
         {
             Dictionary<MyMath.Operation, MathOperation> operationsDictionary = new Dictionary<MyMath.Operation, MathOperation>
             {
-                {MyMath.Operation.ADD, MyMath.Add}
+                {MyMath.Operation.ADD, MyMath.Add},
+                {MyMath.Operation.SUBTRACT, MyMath.Subtract},
+                {MyMath.Operation.MULTIPLY, MyMath.Multiply },
+                {MyMath.Operation.DIVIDE, MyMath.Divide },
+                {MyMath.Operation.MODULO, MyMath.Modulo },
+                {MyMath.Operation.EXPONENT, MyMath.Exponent },
+                {MyMath.Operation.NTHROOT, MyMath.NthRoot},
+                {MyMath.Operation.FACTORIAL, MyMath.Factorial },
+                {MyMath.Operation.ABS, MyMath.Abs }
+
             };
 
             return operationsDictionary;
@@ -153,7 +162,7 @@ namespace DelegateCalculator
             do
             {
                 DisplayHeader("Get Operation");
-                Console.Write("Enter Operation:");
+                Console.Write("Enter Operation {ADD | SUBTRACT | MULTIPLY | DIVIDE | MODULO | EXPONENT | NTHROOT | ABS | FACTORIAL:");
             } while (!ValidateOperation(Console.ReadLine(), operationsDictionary, out operation));
 
             return operation;
