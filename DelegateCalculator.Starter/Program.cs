@@ -23,36 +23,150 @@ namespace DelegateCalculator
         /// </summary>
         static void ManageApplicationLoop()
         {
-            MathOperation operation;
-            double operand1, operand2;
+            bool running = true;
+            while (running)
+            {
+                MathOperation operation;
+                double operand1, operand2;
 
-            Dictionary<MyMath.Operation, MathOperation> operationsDictionary = new Dictionary<MyMath.Operation, MathOperation>();
+                Dictionary<MyMath.Operation, MathOperation> operationsDictionary = new Dictionary<MyMath.Operation, MathOperation>();
+                //need a flipped dictionary to handle unary operations
+                Dictionary<MathOperation, MyMath.Operation> flippedOperationsDictionary = new Dictionary<MathOperation, MyMath.Operation>();
 
-            operationsDictionary = SetupOperations();
+                operationsDictionary = SetupOperations();
+                //from https://stackoverflow.com/questions/22595655/how-to-do-a-dictionary-reverse-lookup
+                flippedOperationsDictionary = operationsDictionary.ToDictionary(x => x.Value, x => x.Key);
 
-            operation = DisplayGetOperation(operationsDictionary);
-            operand1 = DisplayGetOperand(1);
-            operand2 = DisplayGetOperand(2);
-
-            DisplayCalculation(operation, operand1, operand2);
+                operation = DisplayGetOperation(operationsDictionary);
+                MyMath.Operation operationEnum = flippedOperationsDictionary[operation];
+                switch (operationEnum)
+                {
+                    case MyMath.Operation.ADD:
+                        operand1 = ValidateOperand(1);
+                        operand2 = ValidateOperand(2);
+                        DisplayCalculation(operation, operand1, operand2);
+                        break;
+                    case MyMath.Operation.SUBTRACT:
+                        operand1 = ValidateOperand(1);
+                        operand2 = ValidateOperand(2);
+                        DisplayCalculation(operation, operand1, operand2);
+                        break;
+                    case MyMath.Operation.MULTIPLY:
+                        operand1 = ValidateOperand(1);
+                        operand2 = ValidateOperand(2);
+                        DisplayCalculation(operation, operand1, operand2);
+                        break;
+                    case MyMath.Operation.DIVIDE:
+                        operand1 = ValidateOperand(1);
+                        //divide by zero check
+                        operand2 = DivideByZeroCheck(2);
+                        DisplayCalculation(operation, operand1, operand2);
+                        break;
+                    case MyMath.Operation.EXPONENT:
+                        operand1 = ValidateOperand(1);
+                        operand2 = ValidateOperand(2);
+                        DisplayCalculation(operation, operand1, operand2);
+                        break;
+                    case MyMath.Operation.FACTORIAL:
+                        operand1 = ValidateOperand(1);
+                        DisplayCalculation(operation, operand1);
+                        break;
+                    case MyMath.Operation.ABS:
+                        operand1 = ValidateOperand(1);
+                        DisplayCalculation(operation, operand1);
+                        break;
+                    case MyMath.Operation.MODULO:
+                        operand1 = ValidateOperand(1);
+                        operand2 = ValidateOperand(2);
+                        DisplayCalculation(operation, operand1, operand2);
+                        break;
+                    case MyMath.Operation.NTHROOT:
+                        operand1 = ValidateOperand(1);
+                        operand2 = ValidateOperand(2);
+                        DisplayCalculation(operation, operand1, operand2);
+                        break;
+                    
+                }
+                
+                running = ContinueOrExit();
+            }
+            
         }
 
+        static double DivideByZeroCheck(int operandNumber)
+        {
+            bool validOperand = false;
+            double operand = 0;
+            while (!validOperand)
+            {
+                operand = ValidateOperand(operandNumber);
+                if (operand == 0)
+                {
+                    Console.WriteLine("This application does not allow for division by zero. Press any key to try again.");
+                    Console.ReadKey();
+                    continue;
+                }
+                else
+                {
+                    validOperand = true;
+                }
+                
+            }
+            return operand;
+        }
+
+        /// <summary>
+        /// Validates the input received from the DisplatGetOperand() call
+        /// </summary>
+        /// <param name="operandNumber"></param>
+        /// <returns>validated double</returns>
+        static double ValidateOperand(int operandNumber)
+        {
+            bool validOperand = false;
+            double operand = 0;
+            while (!validOperand)
+            {
+                try
+                {
+                    operand = DisplayGetOperand(operandNumber);
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("You have provided null, an invalid value. Press any key to try again.");
+                    Console.ReadKey();
+                    continue;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("You have entered an invalid value. This application only accepts double precision numbers. Press any key to try again.");
+                    Console.ReadKey();
+                    continue;
+                }
+                validOperand = true;
+                
+            }
+            return operand;
+
+        }
         /// <summary>
         /// display all of the calculation information
         /// </summary>
         /// <param name="operation">delegate operation</param>
         /// <param name="operand1">operand 1</param>
         /// <param name="oprand2">operand 2</param>
-        static void DisplayCalculation(MathOperation operation, double operand1, double oprand2)
+        static void DisplayCalculation(MathOperation operation, double operand1, double oprand2 = -1)
         {
             double answer;
             answer = operation(operand1, oprand2);
-
+            string methodName = operation.Method.Name;
             DisplayHeader("Calculation");
 
-            Console.WriteLine($"Operation: {operation.Method.Name}");
+            Console.WriteLine($"Operation: {methodName}");
             Console.WriteLine($"Operand 1: {operand1}");
-            Console.WriteLine($"Operand 2: {oprand2}");
+            if (methodName != "Abs" && methodName != "Factorial")
+            {
+                Console.WriteLine($"Operand 2: {oprand2}");
+            }
             Console.WriteLine($"Answer: {answer}");
 
             DisplayContinuePrompt();
@@ -84,6 +198,46 @@ namespace DelegateCalculator
         }
 
         /// <summary>
+        /// Asks the user whether or not they want to coninue using the application
+        /// </summary>
+        /// <returns>bool indicating the user's choice</returns>
+        static bool ContinueOrExit()
+        {
+            DisplayHeader("Continue or Exit");
+            bool asking = true;
+            bool userResponseBool = false;
+            while (asking)
+            {
+                Console.WriteLine("Would you like to perfrom another calculation (y[es]/n[o]? ");
+                string userResponseString = Console.ReadLine().ToLower();
+                
+                switch (userResponseString)
+                {
+                    case "yes":
+                        userResponseBool = true;
+                        asking = false;
+                        break;
+                    case "y":
+                        userResponseBool = true;
+                        asking = false;
+                        break;
+                    case "no":
+                        asking = false;
+                        break;
+                    case "n":
+                        asking = false;
+                        break;
+                    default:
+                        Console.WriteLine("You did not enter a valid option. Try again.");
+                        break;
+                }
+            }
+            
+
+            return userResponseBool;
+
+        }
+        /// <summary>
         /// display opening screen
         /// </summary>
         static void DisplayOpeningScreen()
@@ -96,13 +250,13 @@ namespace DelegateCalculator
 
             DisplayContinuePrompt();
         }
-
         /// <summary>
         /// display closing screen
         /// </summary>
         static void DisplayClosingScreen()
         {
             Console.Clear();
+        
 
             Console.WriteLine();
             Console.WriteLine("\t\tThanks for using the Delegate Calculator App");
@@ -158,11 +312,12 @@ namespace DelegateCalculator
         static MathOperation DisplayGetOperation(Dictionary<MyMath.Operation, MathOperation> operationsDictionary)
         {
             MathOperation operation;
+            
 
             do
             {
                 DisplayHeader("Get Operation");
-                Console.Write("Enter Operation {ADD | SUBTRACT | MULTIPLY | DIVIDE | MODULO | EXPONENT | NTHROOT | ABS | FACTORIAL:");
+                Console.Write("Enter Operation {ADD | SUBTRACT | MULTIPLY | DIVIDE | MODULO | EXPONENT | NTHROOT | ABS | FACTORIAL}: ");
             } while (!ValidateOperation(Console.ReadLine(), operationsDictionary, out operation));
 
             return operation;

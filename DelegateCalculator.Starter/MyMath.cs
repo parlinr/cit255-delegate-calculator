@@ -57,12 +57,12 @@ namespace DelegateCalculator
             return Math.Pow(number1, 1 / number2);
         }
 
-        public static double Abs(double number1, double number2=0)
+        public static double Abs(double number1, double number2)
         {
             return Math.Abs(number1);
         }
 
-        public static double Factorial(double number1, double number2=0)
+        public static double Factorial(double number1, double number2 = 0)
         {
             if (number1<= 1)
                     return 1;

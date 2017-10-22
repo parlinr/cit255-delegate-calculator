@@ -18,3 +18,9 @@ C:\Users\parlinr\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\o
 C:\Users\parlinr\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.csproj.CoreCompileInputs.cache
 C:\Users\parlinr\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.exe
 C:\Users\parlinr\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.pdb
+C:\Users\RCP\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.exe.config
+C:\Users\RCP\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.exe
+C:\Users\RCP\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\bin\Debug\DelegateCalculator.Starter.pdb
+C:\Users\RCP\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.csprojResolveAssemblyReference.cache
+C:\Users\RCP\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.exe
+C:\Users\RCP\Desktop\cit255-delegate-calculator\DelegateCalculator.Starter\obj\Debug\DelegateCalculator.Starter.pdb
